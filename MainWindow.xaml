@@ -48,10 +48,10 @@
                 <Label x:Name="lblTotal" Content="Total" FontWeight="Bold" Height="26" Canvas.Left="285" Canvas.Top="116" Width="56"/>
                 <Button x:Name="btnAddToSale" Content="Add to Sale" Canvas.Left="519" Canvas.Top="51" RenderTransformOrigin="0.786,1.674" FontWeight="Normal" FontSize="11" Width="79"/>
                 <Button x:Name="btnRemoveItem" Content="Remove Item" RenderTransformOrigin="0.786,1.674" FontWeight="Normal" Height="20" Canvas.Left="519" Canvas.Top="76" Width="79"/>
+                <Button x:Name="btnCheckOut" Content="Checkout" RenderTransformOrigin="0.786,1.674" FontWeight="Bold" Click="btnCheckOut_Click" Height="20" Canvas.Left="519" Canvas.Top="116" Width="79"/>
 
             </Canvas>
         </GroupBox>
-        <Button x:Name="btnCheckOut" Content="Checkout" RenderTransformOrigin="0.786,1.674" FontWeight="Bold" Margin="606,370,115,44" Click="btnCheckOut_Click"/>
 
     </Grid>
 </Window>

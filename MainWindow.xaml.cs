@@ -45,6 +45,7 @@ namespace Costea_Ioan_Lab2
         private void frmMain_Loaded(object sender, RoutedEventArgs e)
         {
             myDoughnutMachine = new DoughnutMachine();
+            myDoughnutMachine.DoughnutComplete += new DoughnutMachine.DoughnutCompleteDelegate(DoughnutCompleteHandler);
         }
 
         private int mRaisedGlazed;
@@ -53,5 +54,56 @@ namespace Costea_Ioan_Lab2
         private int mFilledChocolate;
         private int mFilledVanilla;
 
+        private void glazedToolStripMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            glazedToolStripMenuItem.IsChecked = true;
+            sugarToolStripMenuItem.IsChecked = false;
+            myDoughnutMachine.MakeDoughnuts(DoughnutType.Glazed);
+
+        }
+
+        private void sugarToolStripMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            glazedToolStripMenuItem.IsChecked = false;
+            sugarToolStripMenuItem.IsChecked = true;
+            myDoughnutMachine.MakeDoughnuts(DoughnutType.Sugar);
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void stopToolStripMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            myDoughnutMachine.Enabled = false;
+
+        }
+
+        private void DoughnutCompleteHandler()
+        {
+            switch (myDoughnutMachine.Flavor)
+            {
+                case DoughnutType.Glazed:
+                    mRaisedGlazed++;
+                    txtGlazedRaised.Text = mRaisedGlazed.ToString();
+                    break;
+
+                case DoughnutType.Sugar:
+                    mRaisedSugar++;
+                    txtSugarRaised.Text = mRaisedSugar.ToString();
+                    break;
+
+            }
+        }
+
+        private void txtQuantity_KeyPress(object sender, KeyEventArgs e)
+        {
+            if (!(e.Key >= Key.D0 && e.Key <= Key.D9))
+            {
+                MessageBox.Show("Numai cifre se pot introduce!", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

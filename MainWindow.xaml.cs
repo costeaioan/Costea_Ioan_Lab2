@@ -39,5 +39,19 @@ namespace Costea_Ioan_Lab2
         {
 
         }
+
+        private DoughnutMachine myDoughnutMachine;
+
+        private void frmMain_Loaded(object sender, RoutedEventArgs e)
+        {
+            myDoughnutMachine = new DoughnutMachine();
+        }
+
+        private int mRaisedGlazed;
+        private int mRaisedSugar;
+        private int mFilledLemon;
+        private int mFilledChocolate;
+        private int mFilledVanilla;
+
     }
 }
